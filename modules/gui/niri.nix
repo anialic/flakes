@@ -232,10 +232,13 @@
           '';
         in
         {
+          programs.niri = {
+            enable = true;
+            useNautilus = node.gui.niri.useNautilus;
+          };
           environment.systemPackages =
             with pkgs;
             [
-              niri
               cliphist
               wl-clipboard-rs
               brightnessctl
@@ -245,18 +248,6 @@
             ++ lib.optional node.gui.niri.useNautilus nautilus
             ++ lib.optional node.gui.niri.swaybg.enable swaybg
             ++ lib.optional node.gui.niri.swayidle.enable swayidle;
-
-          xdg.portal = {
-            enable = true;
-            extraPortals = [
-              pkgs.xdg-desktop-portal-gtk
-              pkgs.xdg-desktop-portal-gnome
-            ];
-            configPackages = [ pkgs.niri ];
-            config.niri = lib.mkIf (!node.gui.niri.useNautilus) {
-              "org.freegui.impl.portal.FileChooser" = lib.mkDefault "gtk";
-            };
-          };
 
           services = {
             gnome.gnome-keyring.enable = true;

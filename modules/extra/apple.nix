@@ -13,20 +13,6 @@
         type = lib.types.bool;
         default = true;
       };
-      m1n1CustomLogo = lib.mkOption {
-        type = lib.types.nullOr lib.types.path;
-        default = null;
-        description = "Custom boot logo (256x256 PNG)";
-      };
-      m1n1ExtraOptions = lib.mkOption {
-        type = lib.types.str;
-        default = "";
-        description = "Extra m1n1 options (e.g. for Mac mini display issues)";
-      };
-      showNotch = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-      };
       batteryChargeLimit = lib.mkOption {
         type = lib.types.nullOr lib.types.int;
         default = 80;
@@ -39,8 +25,8 @@
         lib,
         ...
       }:
-      lib.mkIf node.apple.enable {
-        imports = [ inputs.nixos-apple-silicon.nixosModules.apple-silicon-support ];
+      {
+        imports = [ inputs.apple-silicon-support.nixosModules.apple-silicon-support ];
 
         hardware.asahi = {
           setupAsahiSound = node.apple.setupAsahiSound;
@@ -50,9 +36,7 @@
         };
 
         boot = {
-          m1n1CustomLogo = node.apple.m1n1CustomLogo;
-          m1n1ExtraOptions = node.apple.m1n1ExtraOptions;
-          kernelParams = lib.optionals node.apple.showNotch [ "apple_dcp.show_notch=1" ];
+          kernelParams = [ "apple_dcp.show_notch=1" ];
         };
 
         services.udev.extraRules = lib.mkIf (node.apple.batteryChargeLimit != null) ''

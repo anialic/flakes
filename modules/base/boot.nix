@@ -92,7 +92,7 @@
       in
       {
         boot = {
-          kernelPackages = pkgs.${cfg.kernelPackages};
+          kernelPackages = lib.mkDefault pkgs.${cfg.kernelPackages};
           kernelModules = cfg.kernelModules;
           kernelParams = cfg.kernelParams;
           extraModulePackages = map (p: config.boot.kernelPackages.${p}) cfg.extraModulePackages;

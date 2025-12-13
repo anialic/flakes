@@ -7,7 +7,7 @@
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+    apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
   };
 
   outputs =
