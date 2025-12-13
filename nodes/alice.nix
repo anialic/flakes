@@ -1,4 +1,4 @@
-{ resource, pkgsFor, ... }:
+{ resource, ... }:
 {
   nodes.alice = {
     system = "aarch64-linux";
