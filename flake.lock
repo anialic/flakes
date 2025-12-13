@@ -85,6 +85,21 @@
         "type": "github"
       }
     },
+    "flakey": {
+      "locked": {
+        "lastModified": 1765626092,
+        "narHash": "sha256-lNuMdyaPkNe6E+MwlhKM0BIH1EUjBtKaE/J6shdsbEg=",
+        "owner": "anialic",
+        "repo": "flakey",
+        "rev": "2b565c3701b23566cbb9813639bf91a60edae679",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anialic",
+        "repo": "flakey",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -204,25 +219,10 @@
       "inputs": {
         "apple-silicon-support": "apple-silicon-support",
         "disko": "disko",
+        "flakey": "flakey",
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs_2",
-        "preservation": "preservation",
-        "rshy": "rshy"
-      }
-    },
-    "rshy": {
-      "locked": {
-        "lastModified": 1765614459,
-        "narHash": "sha256-c+5mU7f3VXp/hHkNCLcWC6nyIsjOba4+Nt+fR6SLOrc=",
-        "owner": "anialic",
-        "repo": "rshy",
-        "rev": "719e162be81176109892b659dfd054e6fc400cad",
-        "type": "github"
-      },
-      "original": {
-        "owner": "anialic",
-        "repo": "rshy",
-        "type": "github"
+        "preservation": "preservation"
       }
     },
     "rust-overlay": {

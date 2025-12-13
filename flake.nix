@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
-    rshy.url = "github:anialic/rshy";
+    flakey.url = "github:anialic/flakey";
     preservation.url = "github:nix-community/preservation";
     lanzaboote.url = "github:nix-community/lanzaboote";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
@@ -11,8 +11,8 @@
   };
 
   outputs =
-    { nixpkgs, rshy, ... }@inputs:
-    rshy.mkFlake {
+    { nixpkgs, flakey, ... }@inputs:
+    flakey.mkFlake {
       inherit nixpkgs;
       src = ./.;
       args = {

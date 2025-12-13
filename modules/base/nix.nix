@@ -5,9 +5,11 @@
     options.nix = {
       substituters = lib.mkOption {
         type = lib.types.listOf lib.types.str;
+        default = [ ];
       };
       trustedPublicKeys = lib.mkOption {
         type = lib.types.listOf lib.types.str;
+        default = [ ];
       };
       trustedUsers = lib.mkOption {
         type = lib.types.listOf lib.types.str;

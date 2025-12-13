@@ -4,7 +4,8 @@
     options.niri = {
       enable = lib.mkEnableOption "Niri compositor";
       username = lib.mkOption {
-        type = lib.types.str;
+        type = lib.types.nullOr lib.types.str;
+        default = null;
       };
       useNautilus = lib.mkOption {
         type = lib.types.bool;

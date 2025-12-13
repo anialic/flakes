@@ -25,6 +25,7 @@
       boot = {
         device = lib.mkOption {
           type = lib.types.str;
+          default = "";
           description = "Boot partition device, e.g., /dev/disk/by-uuid/...";
         };
         fsType = lib.mkOption {
