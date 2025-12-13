@@ -29,18 +29,16 @@
         };
         availableKernelModules = lib.mkOption {
           type = lib.types.listOf lib.types.str;
-          default = [ "usb_storage" ];
+          default = [ ];
         };
       };
       kernelModules = lib.mkOption {
         type = lib.types.listOf lib.types.str;
-        default = [ "tcp_bbr" ];
+        default = [ ];
       };
       kernelParams = lib.mkOption {
         type = lib.types.listOf lib.types.str;
-        default = [
-          "quiet"
-        ];
+        default = [ ];
       };
       extraModulePackages = lib.mkOption {
         type = lib.types.listOf lib.types.str;
@@ -49,10 +47,7 @@
       };
       sysctl = lib.mkOption {
         type = lib.types.attrsOf lib.types.anything;
-        default = {
-          "net.ipv4.tcp_congestion_control" = "bbr";
-          "net.core.default_qdisc" = "cake";
-        };
+        default = { };
       };
       tmp = {
         useTmpfs = lib.mkOption {
@@ -92,9 +87,10 @@
       in
       {
         boot = {
+          consoleLogLevel = 3;
           kernelPackages = lib.mkDefault pkgs.${cfg.kernelPackages};
           kernelModules = cfg.kernelModules;
-          kernelParams = cfg.kernelParams;
+          kernelParams = cfg.kernelParams ++ [ "quiet" ];
           extraModulePackages = map (p: config.boot.kernelPackages.${p}) cfg.extraModulePackages;
           kernel.sysctl = cfg.sysctl;
 
