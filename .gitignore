@@ -1,0 +1,3 @@
+# .gitignore
+/assets/firmware/
+/assets/singbox.json

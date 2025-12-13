@@ -1,0 +1,1833 @@
+{
+  "dns": {
+    "final": "remote",
+    "rules": [
+      {
+        "clash_mode": "Direct",
+        "server": "local"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "remote"
+      },
+      {
+        "rule_set": "s_geosite-cn",
+        "server": "local"
+      },
+      {
+        "mode": "and",
+        "rules": [
+          {
+            "invert": true,
+            "rule_set": "s_geosite-!cn"
+          },
+          {
+            "rule_set": "s_geoip-cn"
+          }
+        ],
+        "server": "remote",
+        "type": "logical"
+      }
+    ],
+    "servers": [
+      {
+        "detour": "s_out",
+        "server": "8.8.8.8",
+        "tag": "remote",
+        "type": "tls"
+      },
+      {
+        "server": "223.5.5.5",
+        "tag": "local",
+        "type": "https"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "store_rdrc": true
+    },
+    "clash_api": {
+      "default_mode": "Enhanced",
+      "external_controller": "0.0.0.0:9090",
+      "external_ui": "/nix/store/f2njydwvi2wwwbd5l7kdh2l1fpyz5giz-zashboard-1.108.0"
+    }
+  },
+  "inbounds": [
+    {
+      "listen_port": 9898,
+      "tag": "s_tproxy-in",
+      "type": "tproxy"
+    }
+  ],
+  "outbounds": [
+    {
+      "default": "s_auto",
+      "outbounds": [
+        "s_auto",
+        "s_select",
+        "s_direct"
+      ],
+      "tag": "s_out",
+      "type": "selector"
+    },
+    {
+      "tag": "s_direct",
+      "type": "direct"
+    },
+    {
+      "tag": "s_select",
+      "type": "selector",
+      "outbounds": [
+        "🇭🇰丛雨云",
+        "🇯🇵全部超时请检查系统时间",
+        "🇸🇬请开启自动更新订阅",
+        "🇹🇼congyu.org 🐱",
+        "🇭🇰Hong Kong ムラサメ",
+        "🇯🇵Japan 春日野 悠",
+        "🇯🇵Japan 春日野 穹",
+        "🇭🇰Hong Kong 緒山 美波里",
+        "🇭🇰Hong Kong 芙莉蓮",
+        "🇯🇵Japan 霧雨 魔理沙",
+        "🇭🇰Hong Kong 後藤 一里",
+        "🇯🇵Japan 锦 あすみ",
+        "🇭🇰Hong Kong 初音ミク",
+        "🇯🇵Japan 绫地 宁宁",
+        "🇭🇰Hong Kong 紬 ヴェンダース",
+        "🇯🇵Japan 魔女の旅々",
+        "🇭🇰Hong Kong 飛鳥 湊",
+        "🇸🇬Singapore telegram dc5",
+        "🇸🇬Singapore 在原 七海",
+        "🇸🇬Singapore 立華 奏",
+        "🇹🇼Taiwan 朝武 芳乃",
+        "🇹🇼Taiwan 桜小路 露娜",
+        "🇹🇼Taiwan 白雪 乃愛",
+        "🇺🇸USA Alice",
+        "🇺🇸USA 御坂 美琴",
+        "🇺🇸USA 星野 愛",
+        "🇦🇺Australia Sydney 🦘",
+        "🇨🇦Canada",
+        "🇰🇷Korea ブルーアーカイブ ",
+        "🇮🇹Italy 雪村 千絵莉",
+        "🇨🇭Switzerland 0.1x BitTorrent专用",
+        "🇺🇸USA 0.1x 三司 绫濑",
+        "🇺🇸USA 0.1x 常陆 茉子",
+        "🇺🇸USA 0.1x 星空鉄道",
+        "🇦🇪Dubai 0.1x Excαlibur",
+        "🇺🇸USA 0.1x 雪女",
+        "🇦🇲Armenia 竈門 禰豆子",
+        "🇨🇿Czech Republic 加藤 恵",
+        "🇫🇮Finland 香風 智乃",
+        "🇫🇷France 神山 識",
+        "🇬🇷Greece 山田 凉",
+        "🇮🇱Israel アインズ·ウール·ゴウン",
+        "🇱🇮Liechtenstein リムル「大賢者」と「捕食者」",
+        "🇳🇴Norway 藤原 千花",
+        "🇵🇱Poland ナナチ (Nanachi)",
+        "🇵🇹Portugal 和泉 紗霧",
+        "🇷🇺Russia 艾莉",
+        "🇸🇰Slovakia 大蔵 里想奈",
+        "🇨🇭Switzerland 二階堂 真紅",
+        "🇹🇷Turkey 喜多 郁代",
+        "🇬🇧UK London 伊地知 虹夏",
+        "🇦🇱Albania",
+        "🇦🇹Austria",
+        "🇧🇪Belgium",
+        "🇧🇬Bulgaria",
+        "🇭🇷Croatia",
+        "🇭🇺Hungary",
+        "🇮🇸Iceland",
+        "🇮🇪Ireland",
+        "🇱🇻Latvia",
+        "🇱🇹Lithuania",
+        "🇳🇱Netherlands",
+        "🇷🇴Romania",
+        "🇷🇸Serbia",
+        "🇸🇮Slovenia",
+        "🇪🇸Spain"
+      ]
+    },
+    {
+      "tag": "s_auto",
+      "type": "urltest",
+      "outbounds": [
+        "🇭🇰丛雨云",
+        "🇯🇵全部超时请检查系统时间",
+        "🇸🇬请开启自动更新订阅",
+        "🇹🇼congyu.org 🐱",
+        "🇭🇰Hong Kong ムラサメ",
+        "🇯🇵Japan 春日野 悠",
+        "🇯🇵Japan 春日野 穹",
+        "🇭🇰Hong Kong 緒山 美波里",
+        "🇭🇰Hong Kong 芙莉蓮",
+        "🇯🇵Japan 霧雨 魔理沙",
+        "🇭🇰Hong Kong 後藤 一里",
+        "🇯🇵Japan 锦 あすみ",
+        "🇭🇰Hong Kong 初音ミク",
+        "🇯🇵Japan 绫地 宁宁",
+        "🇭🇰Hong Kong 紬 ヴェンダース",
+        "🇯🇵Japan 魔女の旅々",
+        "🇭🇰Hong Kong 飛鳥 湊",
+        "🇸🇬Singapore telegram dc5",
+        "🇸🇬Singapore 在原 七海",
+        "🇸🇬Singapore 立華 奏",
+        "🇹🇼Taiwan 朝武 芳乃",
+        "🇹🇼Taiwan 桜小路 露娜",
+        "🇹🇼Taiwan 白雪 乃愛",
+        "🇺🇸USA Alice",
+        "🇺🇸USA 御坂 美琴",
+        "🇺🇸USA 星野 愛",
+        "🇦🇺Australia Sydney 🦘",
+        "🇨🇦Canada",
+        "🇰🇷Korea ブルーアーカイブ ",
+        "🇮🇹Italy 雪村 千絵莉",
+        "🇨🇭Switzerland 0.1x BitTorrent专用",
+        "🇺🇸USA 0.1x 三司 绫濑",
+        "🇺🇸USA 0.1x 常陆 茉子",
+        "🇺🇸USA 0.1x 星空鉄道",
+        "🇦🇪Dubai 0.1x Excαlibur",
+        "🇺🇸USA 0.1x 雪女",
+        "🇦🇲Armenia 竈門 禰豆子",
+        "🇨🇿Czech Republic 加藤 恵",
+        "🇫🇮Finland 香風 智乃",
+        "🇫🇷France 神山 識",
+        "🇬🇷Greece 山田 凉",
+        "🇮🇱Israel アインズ·ウール·ゴウン",
+        "🇱🇮Liechtenstein リムル「大賢者」と「捕食者」",
+        "🇳🇴Norway 藤原 千花",
+        "🇵🇱Poland ナナチ (Nanachi)",
+        "🇵🇹Portugal 和泉 紗霧",
+        "🇷🇺Russia 艾莉",
+        "🇸🇰Slovakia 大蔵 里想奈",
+        "🇨🇭Switzerland 二階堂 真紅",
+        "🇹🇷Turkey 喜多 郁代",
+        "🇬🇧UK London 伊地知 虹夏",
+        "🇦🇱Albania",
+        "🇦🇹Austria",
+        "🇧🇪Belgium",
+        "🇧🇬Bulgaria",
+        "🇭🇷Croatia",
+        "🇭🇺Hungary",
+        "🇮🇸Iceland",
+        "🇮🇪Ireland",
+        "🇱🇻Latvia",
+        "🇱🇹Lithuania",
+        "🇳🇱Netherlands",
+        "🇷🇴Romania",
+        "🇷🇸Serbia",
+        "🇸🇮Slovenia",
+        "🇪🇸Spain"
+      ]
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "hkov.a.vxgky.com",
+      "server_port": 9999,
+      "tag": "🇭🇰丛雨云",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "g.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "jpov.a.vxgky.com",
+      "server_port": 9999,
+      "tag": "🇯🇵全部超时请检查系统时间",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "g.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "sg4.a.vxgky.com",
+      "server_port": 25849,
+      "tag": "🇸🇬请开启自动更新订阅",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "tw4.a.vxgky.com",
+      "server_port": 25852,
+      "tag": "🇹🇼congyu.org 🐱",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "hk6.a.vxgky.com",
+      "server_port": 25835,
+      "tag": "🇭🇰Hong Kong ムラサメ",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "jp6.a.vxgky.com",
+      "server_port": 25837,
+      "tag": "🇯🇵Japan 春日野 悠",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "jp5.a.vxgky.com",
+      "server_port": 25836,
+      "tag": "🇯🇵Japan 春日野 穹",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "hk2.a.vxgky.com",
+      "server_port": 25830,
+      "tag": "🇭🇰Hong Kong 緒山 美波里",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "hk4.a.vxgky.com",
+      "server_port": 25843,
+      "tag": "🇭🇰Hong Kong 芙莉蓮",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "jp4.a.vxgky.com",
+      "server_port": 25838,
+      "tag": "🇯🇵Japan 霧雨 魔理沙",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "hk8.a.vxgky.com",
+      "server_port": 25834,
+      "tag": "🇭🇰Hong Kong 後藤 一里",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "jp3.a.vxgky.com",
+      "server_port": 25839,
+      "tag": "🇯🇵Japan 锦 あすみ",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "hk1.a.vxgky.com",
+      "server_port": 25842,
+      "tag": "🇭🇰Hong Kong 初音ミク",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "jp1.a.vxgky.com",
+      "server_port": 25841,
+      "tag": "🇯🇵Japan 绫地 宁宁",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "hk5.a.vxgky.com",
+      "server_port": 25844,
+      "tag": "🇭🇰Hong Kong 紬 ヴェンダース",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "jp2.a.vxgky.com",
+      "server_port": 25840,
+      "tag": "🇯🇵Japan 魔女の旅々",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "hk7.a.vxgky.com",
+      "server_port": 25845,
+      "tag": "🇭🇰Hong Kong 飛鳥 湊",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "sg2.a.vxgky.com",
+      "server_port": 25847,
+      "tag": "🇸🇬Singapore telegram dc5",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "sg1.a.vxgky.com",
+      "server_port": 25850,
+      "tag": "🇸🇬Singapore 在原 七海",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "sg3.a.vxgky.com",
+      "server_port": 25848,
+      "tag": "🇸🇬Singapore 立華 奏",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "tw2.a.vxgky.com",
+      "server_port": 25853,
+      "tag": "🇹🇼Taiwan 朝武 芳乃",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "tw3.a.vxgky.com",
+      "server_port": 25854,
+      "tag": "🇹🇼Taiwan 桜小路 露娜",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "tw1.a.vxgky.com",
+      "server_port": 25855,
+      "tag": "🇹🇼Taiwan 白雪 乃愛",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "us3.a.vxgky.com",
+      "server_port": 25856,
+      "tag": "🇺🇸USA Alice",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "us1.a.vxgky.com",
+      "server_port": 25857,
+      "tag": "🇺🇸USA 御坂 美琴",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "us5.a.vxgky.com",
+      "server_port": 25858,
+      "tag": "🇺🇸USA 星野 愛",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "au1.a.vxgky.com",
+      "server_port": 25859,
+      "tag": "🇦🇺Australia Sydney 🦘",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "ca1.a.vxgky.com",
+      "server_port": 25860,
+      "tag": "🇨🇦Canada",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "kr1.a.vxgky.com",
+      "server_port": 25861,
+      "tag": "🇰🇷Korea ブルーアーカイブ ",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "r.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇮🇹Italy 雪村 千絵莉",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10032?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "lu1.congyu.moe",
+      "server_port": 8888,
+      "tag": "🇨🇭Switzerland 0.1x BitTorrent专用",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "lu1.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "us2.congyu.moe",
+      "server_port": 8888,
+      "tag": "🇺🇸USA 0.1x 三司 绫濑",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "us2.cgyu.cc",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "us6.congyu.moe",
+      "server_port": 8888,
+      "tag": "🇺🇸USA 0.1x 常陆 茉子",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "us6.mrsm.top",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "us7.congyu.moe",
+      "server_port": 8888,
+      "tag": "🇺🇸USA 0.1x 星空鉄道",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "us7.mrsm.top",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "service_name": "m",
+        "type": "grpc"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "sa.mrsm.top",
+      "server_port": 443,
+      "tag": "🇦🇪Dubai 0.1x Excαlibur",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "sa.mrsm.top",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/m?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "us-g-0-cf.douyinqqkuaishou.top",
+      "server_port": 80,
+      "tag": "🇺🇸USA 0.1x 雪女",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/m?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇦🇲Armenia 竈門 禰豆子",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10048?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇨🇿Czech Republic 加藤 恵",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10050?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇫🇮Finland 香風 智乃",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10044?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇫🇷France 神山 識",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10024?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇬🇷Greece 山田 凉",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10052?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇮🇱Israel アインズ·ウール·ゴウン",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10043?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇱🇮Liechtenstein リムル「大賢者」と「捕食者」",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10049?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇳🇴Norway 藤原 千花",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10053?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇵🇱Poland ナナチ (Nanachi)",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10046?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇵🇹Portugal 和泉 紗霧",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10045?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇷🇺Russia 艾莉",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10109?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇸🇰Slovakia 大蔵 里想奈",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10051?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇨🇭Switzerland 二階堂 真紅",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10047?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "tr1.a.izrk.cn",
+      "server_port": 21720,
+      "tag": "🇹🇷Turkey 喜多 郁代",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/m?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "uk1.a.izrk.cn",
+      "server_port": 20717,
+      "tag": "🇬🇧UK London 伊地知 虹夏",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/m?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇦🇱Albania",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10179?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇦🇹Austria",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10168?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇧🇪Belgium",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10167?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇧🇬Bulgaria",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10172?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇭🇷Croatia",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10178?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇭🇺Hungary",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10170?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇮🇸Iceland",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10175?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇮🇪Ireland",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10169?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇱🇻Latvia",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10174?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇱🇹Lithuania",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10173?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇳🇱Netherlands",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10166?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇷🇴Romania",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10171?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇷🇸Serbia",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10176?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇸🇮Slovenia",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10177?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    },
+    {
+      "alter_id": 0,
+      "security": "auto",
+      "server": "eu.a.izrk.cn",
+      "server_port": 80,
+      "tag": "🇪🇸Spain",
+      "tls": {
+        "disable_sni": false,
+        "enabled": true,
+        "insecure": false,
+        "server_name": "",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "path": "/10165?ed=2048",
+        "type": "ws"
+      },
+      "type": "vmess",
+      "uuid": "90ff28b2-18e7-484e-bd00-8945fc530d7b"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "default_domain_resolver": "local",
+    "final": "s_out",
+    "rule_set": [
+      {
+        "format": "binary",
+        "path": "/nix/store/p1d71lk9264ihjqjnrmz2m1wbxxy4gn6-sing-geoip-2025-11/share/sing-box/rule-set/geoip-cn.srs",
+        "tag": "s_geoip-cn",
+        "type": "local"
+      },
+      {
+        "format": "binary",
+        "path": "/nix/store/r75782gja7a3h47cjags0y6h6bj4sz38-sing-geosite-20251119044456/share/sing-box/rule-set/geosite-geolocation-cn.srs",
+        "tag": "s_geosite-cn",
+        "type": "local"
+      },
+      {
+        "format": "binary",
+        "path": "/nix/store/r75782gja7a3h47cjags0y6h6bj4sz38-sing-geosite-20251119044456/share/sing-box/rule-set/geosite-geolocation-!cn.srs",
+        "tag": "s_geosite-!cn",
+        "type": "local"
+      }
+    ],
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "action": "hijack-dns",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+        "type": "logical"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "s_direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "s_out"
+      },
+      {
+        "action": "reject",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 853
+          },
+          {
+            "network": "udp",
+            "port": 443
+          },
+          {
+            "protocol": "stun"
+          }
+        ],
+        "type": "logical"
+      },
+      {
+        "mode": "and",
+        "outbound": "s_direct",
+        "rules": [
+          {
+            "rule_set": "s_geoip-cn"
+          },
+          {
+            "invert": true,
+            "rule_set": "s_geosite-!cn"
+          }
+        ],
+        "type": "logical"
+      },
+      {
+        "outbound": "s_direct",
+        "rule_set": "s_geosite-cn"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "s_direct"
+      }
+    ]
+  }
+}

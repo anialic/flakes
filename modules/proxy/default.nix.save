@@ -1,0 +1,12 @@
+{ lib, ... }:
+{
+  modules.proxy = {
+    target = "nixos";
+
+i9;5u   options = {
+      enable = lib.mkEnableOption "proxy configuration";
+    };
+
+    module = { ... }: { };
+  };
+}
